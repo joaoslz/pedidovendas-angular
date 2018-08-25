@@ -1,0 +1,53 @@
+
+<div class="container">
+   <div class="ui-g-12">
+     <h1>Pesquisa de Produtos</h1>
+   </div>
+
+   <div class="ui-g-12 ui-fluid">
+     <label for="nome">Nome</label>
+     <input id="nome" type="text" pInputText />
+   </div>
+
+   <div class="ui-g-12">
+    <label for="precoDe" style="display:block" >Preço (R$)</label>
+    <input id="precoDe" type="text" pInputText />
+
+    <label for="precoAte">até</label>
+    <input id="precoAte" type="text" pInputText />
+  </div>
+
+  <div class="ui-g-12">
+    <button pButton type="submit" label="Pesquisar"></button>
+  </div>
+
+  <div class="ui-g-12">
+
+    <p-table [value]="produtos" [paginator]="true" [rows]="3" [responsive]="true">
+      <ng-template pTemplate="header">
+          <tr>
+              <th>NOME</th>
+              <th>PREÇO</th>
+              <th>ESTOQUE</th>
+              <th>ATIVO</th>
+          </tr>
+      </ng-template>
+      <ng-template pTemplate="body" let-produto>
+          <tr>
+              <td>{{produto.nome}}</td>
+              <td>{{produto.precoAtual | currency: 'BRL' }}</td>
+              <td>
+               <span [style.color] = "produto.quantidadeEstoque > 5 ? 'blue' : 'red' " >
+                {{produto.quantidadeEstoque}}
+              </span>
+              
+              </td>
+              <td>{{produto.ativo}}</td>
+          </tr>
+      </ng-template>
+  </p-table>
+
+  </div>
+
+</div>
+
