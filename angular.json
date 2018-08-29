@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "pedidovendas-angular": {
+    "pedidovendas-ui": {
       "root": "",
       "sourceRoot": "src",
       "projectType": "application",
@@ -13,7 +13,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/pedidovendas-angular",
+            "outputPath": "dist/pedidovendas-ui",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -24,8 +24,9 @@
             ],
             "styles": [
               "node_modules/primeicons/primeicons.css",
-              "node_modules/primeng/resources/themes/nova-light/theme.css",
+              "node_modules/primeng/resources/themes/nova-dark/theme.css",
               "node_modules/primeng/resources/primeng.min.css",
+              "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -53,18 +54,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "pedidovendas-angular:build"
+            "browserTarget": "pedidovendas-ui:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "pedidovendas-angular:build:production"
+              "browserTarget": "pedidovendas-ui:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "pedidovendas-angular:build"
+            "browserTarget": "pedidovendas-ui:build"
           }
         },
         "test": {
@@ -98,7 +99,7 @@
         }
       }
     },
-    "pedidovendas-angular-e2e": {
+    "pedidovendas-ui-e2e": {
       "root": "e2e/",
       "projectType": "application",
       "architect": {
@@ -106,11 +107,11 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "pedidovendas-angular:serve"
+            "devServerTarget": "pedidovendas-ui:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "pedidovendas-angular:serve:production"
+              "devServerTarget": "pedidovendas-ui:serve:production"
             }
           }
         },
@@ -126,5 +127,5 @@
       }
     }
   },
-  "defaultProject": "pedidovendas-angular"
+  "defaultProject": "pedidovendas-ui"
 }
