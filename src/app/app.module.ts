@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { AppComponent } from './app.component';
 import { BarraNavegacaoComponent } from './barra-navegacao/barra-navegacao.component';
 import { ProdutosModule } from './produtos/produtos.module';
-import { ProdutoPesquisaComponent } from './produtos/pesquisa/produto-pesquisa.component';
+import { AppRotasModule } from './app.rotas.module';
+import { ErrosModule } from './erros/erros.module';
 
 
 
@@ -12,15 +13,13 @@ import { ProdutoPesquisaComponent } from './produtos/pesquisa/produto-pesquisa.c
   declarations: [
     AppComponent,
     BarraNavegacaoComponent
- /* 
-    ProdutoPesquisaComponent,
-    ProdutoFormComponent
- */
   ],
  
   imports: [
     BrowserModule, 
-    ProdutosModule
+    ProdutosModule,
+    AppRotasModule,
+    ErrosModule
   ],
  
   providers: [],

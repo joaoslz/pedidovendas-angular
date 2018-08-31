@@ -6,11 +6,13 @@ import { ButtonModule } from 'primeng/button';
 import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { ProdutoPesquisaComponent } from './pesquisa/produto-pesquisa.component';
+import { ProdutoFormComponent } from './produto-form/produto-form.component';
 
 @NgModule({
    
   declarations: [
-    ProdutoPesquisaComponent
+    ProdutoPesquisaComponent,
+    ProdutoFormComponent
   ], 
 
   imports: [
@@ -20,7 +22,7 @@ import { ProdutoPesquisaComponent } from './pesquisa/produto-pesquisa.component'
   ] ,
 
   exports: [
-    ProdutoPesquisaComponent
+    ProdutoPesquisaComponent, ProdutoFormComponent
   ] 
 
 })
