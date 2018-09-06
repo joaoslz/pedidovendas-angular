@@ -7,6 +7,8 @@ import { TableModule } from 'primeng/table';
 import { TooltipModule } from 'primeng/tooltip';
 import { ProdutoPesquisaComponent } from './pesquisa/produto-pesquisa.component';
 import { ProdutoFormComponent } from './produto-form/produto-form.component';
+import { FormsModule } from '@angular/forms';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
    
@@ -18,11 +20,14 @@ import { ProdutoFormComponent } from './produto-form/produto-form.component';
   imports: [
     CommonModule,
     InputTextModule, ButtonModule, TableModule, TooltipModule,
-    HttpClientModule
+    HttpClientModule,
+    FormsModule,
+    RouterModule
   ] ,
 
   exports: [
-    ProdutoPesquisaComponent, ProdutoFormComponent
+    ProdutoPesquisaComponent, 
+    ProdutoFormComponent
   ] 
 
 })

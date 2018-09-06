@@ -1,66 +1,103 @@
 <div class="container">
+
+  <div class="card mt-5">
+    <div class="card-body">
+
+      <h2 class="card-title">Listagem de Produtos</h2>
+
+      <div class="my-2 text-left">
+         <button class="btn btn-primary my-3" type="button" 
+                 [routerLink]="['/produtos/form']">Novo Produto</button>
+      </div>
      
-  <h1 class="h2 mt-4">Listagem de Produtos</h1>
+      <table class="table table-bordered table-striped">
+        <thead>
+          <tr>
+            <th>id</th>
+            <th>Nome</th>
+            <th>Preço</th>
+            <th>Quantidade</th>
+            <th>Ativo</th>
+            <th>editar</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let produto of produtos">
+            <td>{{ produto.id }}</td>
+            <td>{{ produto.nome }}</td>
+            <td>{{ produto.precoAtual }}</td>
+            <td>{{ produto.quantidadeEstoque }}</td>
+            <td>{{produto.ativo}}</td>
+            <td>
+              <button type="button" name="editar" [routerLink]="['/produtos/form', produto.id]" class="btn btn-outline-primary btn-sm">editar</button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
 
-  <div class="form-group">
+
+      <!-- 
+   [routerLink]="['produtos/form', produto.id]" 
+
+  <form autocomplete="off" (ngSubmit)="pesquisar()">
+
+    <div class="form-group">
       <label for="nome">Nome</label>
-      <input type="text" pInputText  class="form-control" placeholder="Nome do produto que deseja pesquisar"/>
-  </div>
-  
-    <div class="row">
+      <input id="nome" type="text" pInputText class="form-control" name="produtoFiltro.nome"
+      placeholder="Nome do produto que deseja pesquisar" >
+    </div>
 
+    <div class="row">
       <div class="form-group col-md-3">
         <label for="precoDe">Preço (R$)</label>
-        <input id="precoDe" type="text" class="form-control"  pInputText>
+        <input id="precoDe" type="text" class="form-control" pInputText>
       </div>
 
       <div class="form-group col-md-3">
         <label for="precoAte">até</label>
         <input id="precoAte" type="text" class="form-control" pInputText>
-            
       </div>
-
     </div>
+    <button pButton type="button" class="ui-button-rounded ui-button-info"  label="Pesquisar"></button>
+  
+  </form>
 
-      <button pButton type="submit" label="Pesquisar"></button>
+  <div class="row mt-5">
 
+    <p-table [value]="produtos" [paginator]="true" [rows]="5" [responsive]="true">
 
-      <div class="row mt-5">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Nome</th>
+          <th>Preço Atual</th>
+          <th>Estoque</th>
+          <th class="col-w6">Ativo</th>
+          <th class="col-w8">Ações</th>
+        </tr>
+      </ng-template>
 
-      <p-table [value]="produtos" [paginator]="true" [rows]="5" [responsive]="true">
+      <ng-template pTemplate="body" let-produto>
+        <tr>
+          <td>{{produto.nome}}</td>
+          <td>{{produto.precoAtual | currency:'BRL'}}</td>
+          <td>
+            <span [style.color]="produto.quantidadeEstoque < 15 ? 'red' : 'blue'">
+              {{produto.quantidadeEstoque }}
+            </span>
 
-        <ng-template pTemplate="header">
-          <tr>
-            <th>Nome</th>
-            <th>Preço Atual</th>
-            <th>Estoque</th>
-            <th class="col-w6">Ativo</th>
-            <th class="col-w8">Ações</th>
-          </tr>
-        </ng-template>
+          </td>
+          <td class="col-w6">{{produto.ativo}}</td>
+          <td class="col-w8">
+             <button type="button" name="editar"
+                    [routerLink]="['produtos/form', produto.id]" 
+                    class="btn btn-outline-primary btn-sm">editar</button>
+           </td>
+        </tr>
+      </ng-template>
 
-        <ng-template pTemplate="body" let-produto>
-          <tr>
-            <td>{{produto.nome}}</td>
-            <td>{{produto.precoAtual | currency:'BRL'}}</td>
-            <td>
-              <span [style.color]="produto.quantidadeEstoque < 15 ? 'red' : 'blue'">
-                {{produto.quantidadeEstoque }}
-              </span>
+    </p-table>
 
-            </td>
-            <td class="col-w6">{{produto.ativo}}</td>
-            <td class="col-w8">
-              <!-- Ações -->
-              <button pButton type="button" icon="pi pi-pencil" style="margin-right: 1em;" pTooltip="Editar" tooltipPosition="top"></button>
-              <button pButton type="button" icon="pi pi-trash" pTooltip="Desativar o produto" tooltipPosition="top"></button>
-
-
-            </td>
-          </tr>
-        </ng-template>
-
-      </p-table>
-
+ -->
+    </div>
   </div>
 </div>

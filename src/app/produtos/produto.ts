@@ -1,15 +1,15 @@
-export interface Produto {
+export class Produto {
 
-    id: number,
-    nome:string
-    precoAtual: number,
-    ativo: boolean,
-    quantidadeEstoque: number,
-    categorias: Categoria[] 
+    id: number;
+    nome:string;
+    precoAtual: number;
+    ativo: boolean = true;
+    quantidadeEstoque: number;
+    categorias: Categoria[]; 
  }
  
- export interface Categoria {
-    id: number,
-    nome:string
+ export class Categoria {
+    id: number;
+    nome:string;
 }
  
